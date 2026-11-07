@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a39">
+  <meta name="description" content="دارك أقرب لجامعتك. اعثر على شقة أو غرفة تناسب احتياجاتك بسهولة.">
+  <title>DAR | سكنك أقرب</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/app.js" defer></script>
+</head>
+<body class="home-page">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand"><img src="Futuristic DAR Logo with Blue Accents.png" alt="DAR Logo"></a> 
+      <button class="mobile-menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="القائمة الرئيسية">
+        <a class="active" href="index.html">الرئيسية</a>
+        <a href="#listings">ابحث عن سكن</a>
+        <a href="#how-it-works">كيف تعمل DAR؟</a>
+        <a href="#footer">تواصل معنا</a>
+      </nav>
+      <div class="header-actions">
+        <a class="login-link" href="login.html">تسجيل الدخول</a>
+        <a class="btn btn-primary btn-small" href="register.html">إنشاء حساب</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-photo" role="img" aria-label="مبنى سكني في المساء"></div>
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">دارك الجديدة تبدأ من هنا</p>
+          <h1>قريب من جامعتك،<br><span>وأقرب لميزانيتك.</span></h1>
+          <p class="hero-description">اكتشف شققًا وغرفًا للإيجار تناسب حياتك الجامعية.<br>قارن، اختر، وتواصل مع المالك بكل سهولة.</p>
+          <a class="btn btn-primary hero-cta" href="#listings"><span aria-hidden="true">←</span> اكتشف سكنك</a>
+          <div class="hero-benefits">
+            <span><b class="line-icon cap-icon" aria-hidden="true">⌂</b> قريب من الجامعة</span>
+            <span><b class="line-icon" aria-hidden="true">♧</b> أسعار تناسبك</span>
+            <span><b class="line-icon chat-icon" aria-hidden="true">▢</b> تواصل مباشر</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container search-panel" aria-label="البحث عن سكن">
+      <div class="stay-tabs" role="tablist" aria-label="نوع السكن">
+        <button class="stay-tab active" data-type="all" role="tab" aria-selected="true">كل السكن</button>
+        <button class="stay-tab" data-type="apartment" role="tab" aria-selected="false">شقة كاملة</button>
+        <button class="stay-tab" data-type="private" role="tab" aria-selected="false">غرفة خاصة</button>
+        <button class="stay-tab" data-type="shared" role="tab" aria-selected="false">غرفة مشتركة</button>
+      </div>
+      <form class="search-form" id="housing-search">
+        <label class="select-wrap">
+          <span>المدينة أو المنطقة</span>
+          <select id="location-filter" aria-label="المدينة أو المنطقة">
+            <option value="all">عمّان، الجبيهة</option>
+            <option value="الجبيهة">الجبيهة</option>
+            <option value="الجامعة الأردنية">الجامعة الأردنية</option>
+          </select>
+        </label>
+        <label class="select-wrap">
+          <span>الجامعة</span>
+          <select id="university-filter" aria-label="الجامعة">
+            <option value="all">الجامعة الأردنية</option>
+            <option value="الجامعة الأردنية">الجامعة الأردنية</option>
+            <option value="جامعة العلوم التطبيقية">جامعة العلوم التطبيقية</option>
+          </select>
+        </label>
+        <label class="select-wrap">
+          <span>الميزانية الشهرية</span>
+          <select id="price-filter" aria-label="الميزانية الشهرية">
+            <option value="all">حتى ٤٠٠ د.أ</option>
+            <option value="200">حتى ٢٠٠ د.أ</option>
+            <option value="300">حتى ٣٠٠ د.أ</option>
+          </select>
+        </label>
+        <button class="btn btn-primary search-button" type="submit"><span aria-hidden="true">⌕</span> ابحث عن سكن</button>
+      </form>
+    </section>
+
+    <section class="container listings-section" id="listings">
+      <div class="section-heading">
+        <div>
+          <h2>مكان مناسب لكل بداية</h2>
+          <p>خيارات مختارة بالقرب من الجامعة الأردنية، بإيجارات شهرية واضحة.</p>
+        </div>
+        <a class="btn btn-outline" href="#listings">عرض كل السكن <span aria-hidden="true">←</span></a>
+      </div>
+      <p class="search-feedback" id="search-feedback" aria-live="polite"></p>
+      <div class="property-grid" id="property-grid">
+        <article class="property-card" data-type="apartment" data-location="الجبيهة" data-university="الجامعة الأردنية" data-price="380">
+          <div class="property-image-wrap">
+            <img src="assets/property-3.jpg" alt="مبنى شقق سكنية مضاء في المساء">
+            <span class="property-tag">شقة كاملة</span>
+            <button class="favorite-btn" aria-label="إضافة الشقة إلى المفضلة" aria-pressed="false" type="button">♡</button>
+          </div>
+          <div class="property-content">
+            <h3>شقة مفروشة بالقرب من الجامعة الأردنية</h3>
+            <p class="property-location">عمّان، الجبيهة · شارع الجامعة</p>
+            <p class="property-meta">غرفتان · حمام · ٨٥ م²</p>
+            <p class="property-distance"><span aria-hidden="true">♧</span> ٨ دقائق مشيًا إلى الجامعة</p>
+            <div class="property-bottom"><span class="property-price">٣٨٠ <small>د.أ / شهر</small></span><button class="round-arrow" type="button" aria-label="عرض تفاصيل الشقة">↙</button></div>
+          </div>
+        </article>
+        <article class="property-card" data-type="private" data-location="الجامعة الأردنية" data-university="الجامعة الأردنية" data-price="140">
+          <div class="property-image-wrap">
+            <img src="assets/property-2.jpg" alt="غرفة نوم خاصة مع مكتب للدراسة">
+            <span class="property-tag">غرفة خاصة</span>
+            <button class="favorite-btn" aria-label="إضافة الغرفة إلى المفضلة" aria-pressed="false" type="button">♡</button>
+          </div>
+          <div class="property-content">
+            <h3>غرفة خاصة في شقة طلابية</h3>
+            <p class="property-location">عمّان، قرب الجامعة</p>
+            <p class="property-meta">غرفة · حمام مشترك · ٢٠ م²</p>
+            <p class="property-distance"><span aria-hidden="true">♧</span> ٥ دقائق مشيًا إلى الجامعة</p>
+            <div class="property-bottom"><span class="property-price">١٤٠ <small>د.أ / شهر</small></span><button class="round-arrow" type="button" aria-label="عرض تفاصيل الغرفة">↙</button></div>
+          </div>
+        </article>
+        <article class="property-card" data-type="shared" data-location="الجبيهة" data-university="جامعة العلوم التطبيقية" data-price="120">
+          <div class="property-image-wrap">
+            <img src="assets/property-1.jpg" alt="استوديو هادئ ومجهز للعيش والدراسة">
+            <span class="property-tag">استوديو</span>
+            <button class="favorite-btn" aria-label="إضافة الاستوديو إلى المفضلة" aria-pressed="false" type="button">♡</button>
+          </div>
+          <div class="property-content">
+            <h3>استوديو هادئ وجاهز للسكن</h3>
+            <p class="property-location">عمّان، ضاحية الرشيد</p>
+            <p class="property-meta">غرفة · حمام · ٣٠ م²</p>
+            <p class="property-distance"><span aria-hidden="true">♧</span> ١٢ دقيقة مشيًا إلى الجامعة</p>
+            <div class="property-bottom"><span class="property-price">١٢٠ <small>د.أ / شهر</small></span><button class="round-arrow" type="button" aria-label="عرض تفاصيل الاستوديو">↙</button></div>
+          </div>
+        </article>
+      </div>
+      <div class="empty-results" id="empty-results" hidden>لا توجد خيارات تطابق البحث. جرّب تغيير الفلاتر.</div>
+    </section>
+
+    <section class="how-section" id="how-it-works">
+      <div class="container">
+        <div class="center-heading">
+          <h2>من البحث إلى دارك... بخطوات بسيطة</h2>
+          <p>خلّي تركيزك على دراستك، واحنا نسهّل عليك.</p>
+        </div>
+        <div class="steps-grid">
+          <article class="step-card"><div class="step-icon" aria-hidden="true">⌕</div><span class="step-number">٠١</span><h3>حدد سكنك المناسب</h3><p>اختر الجامعة والميزانية ونوع السكن، وستجد خيارات قريبة منك.</p></article>
+          <article class="step-card"><div class="step-icon heart-icon" aria-hidden="true">♡</div><span class="step-number">٠٢</span><h3>قارن على راحتك</h3><p>شاهد الصور والمرافق وتكلفة الإيجار، واحفظ الخيارات التي تناسبك.</p></article>
+          <article class="step-card"><div class="step-icon" aria-hidden="true">▢</div><span class="step-number">٠٣</span><h3>تواصل ورتّب زيارة</h3><p>تواصل مباشرة مع المالك، اسأل عن التفاصيل، وشاهد السكن قبل الاتفاق.</p></article>
+        </div>
+        <div class="join-banner"><div><h3>سكنك القادم يستاهل تختاره بهدوء.</h3><p>احفظ إعلاناتك المفضلة وارجع لها في أي وقت، من مكان واحد.</p></div><a class="btn btn-primary" href="register.html"><span aria-hidden="true">←</span> أنشئ حسابك مجانًا</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="footer">
+    <div class="container footer-main">
+      <div class="footer-brand-block"><a class="brand" href="index.html"><span>DAR</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></a><p>دارك الجديدة، أقرب لجامعتك. نساعدك تلاقي شقة أو غرفة تناسب دراستك وميزانيتك، بكل وضوح.</p></div>
+      <div class="footer-links"><h3>كل ما تحتاجه</h3><a href="#listings">ابحث عن سكن</a><a href="#how-it-works">كيف تعمل DAR؟</a><a href="#listings">دليل السكن الطلابي</a></div>
+      <div class="footer-links"><h3>نحن هنا لمساعدتك</h3><a href="#footer">مركز المساعدة</a><a href="#footer">تواصل معنا</a><span>الأحد - الخميس، ٩ ص - ٦ م</span></div>
+    </div>
+    <div class="container footer-bottom"><div><a href="#footer">سياسة الخصوصية</a><span>·</span><a href="#footer">الشروط والأحكام</a></div><span>جميع الحقوق محفوظة. DAR © ٢٠٢٦</span></div>
+  </footer>
+  <div class="toast" id="site-toast" role="status" aria-live="polite"></div>
+</body>
+</html>
