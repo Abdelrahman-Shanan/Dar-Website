@@ -1,0 +1,61 @@
+@{
+    // اسم المستخدم: يُؤخذ من الصفحة (للعرض التجريبي) أو من الحساب المسجَّل عند تفعيل المصادقة
+    var userName = ViewData["UserName"] as string
+        ?? (User.Identity?.IsAuthenticated == true ? User.Identity.Name : null);
+    var nav = ViewData["Nav"] as string;
+    var description = ViewData["Description"] as string;
+}
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a39">
+  @if (!string.IsNullOrEmpty(description))
+  {
+  <meta name="description" content="@description">
+  }
+  <title>@(ViewData["Title"] ?? "DAR")</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="~/css/style.css">
+  @await RenderSectionAsync("Styles", required: false)
+  <script src="~/js/app.js" defer></script>
+  @await RenderSectionAsync("Scripts", required: false)
+</head>
+<body class="@ViewData["BodyClass"]" data-login-url="@Url.Action("Login", "Account")">
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="@Url.Action("Index", "Home")" class="brand"><img src="~/assets/dar-logo.png" alt="DAR Logo"></a>
+      <button class="mobile-menu-toggle" type="button" aria-label="فتح القائمة" aria-expanded="false">☰</button>
+      <nav class="main-nav" aria-label="القائمة الرئيسية">
+        <a href="@Url.Action("Index", "Home")" class="@(nav == "home" ? "active" : null)">الرئيسية</a>
+        <a href="@Url.Action("Search", "Properties")" class="@(nav == "search" ? "is-current" : null)">ابحث عن سكن</a>
+        <a href="@Url.Action("Index", "Home")#how-it-works">كيف تعمل DAR؟</a>
+        <a href="#footer">تواصل معنا</a>
+      </nav>
+      @if (userName is not null)
+      {
+      <div class="header-user"><button class="user-chip" type="button" aria-label="قائمة الحساب"><span class="avatar"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><span>@userName</span><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button></div>
+      }
+      else
+      {
+      <div class="header-actions"><a class="login-link" href="@Url.Action("Login", "Account")">تسجيل الدخول</a><a class="btn btn-primary btn-small" href="@Url.Action("Register", "Account")">إنشاء حساب</a></div>
+      }
+    </div>
+  </header>
+
+  @RenderBody()
+
+  <footer class="site-footer @ViewData["FooterClass"]" id="footer">
+    <div class="container footer-main">
+      <div class="footer-brand-block"><a class="brand" href="@Url.Action("Index", "Home")"><span>DAR</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></a><p>دارك الجديدة، أقرب لجامعتك. نساعدك تلاقي شقة أو غرفة تناسب دراستك وميزانيتك، بكل وضوح.</p></div>
+      <div class="footer-links"><h3>كل ما تحتاجه</h3><a href="@Url.Action("Search", "Properties")">ابحث عن سكن</a><a href="@Url.Action("Index", "Home")#how-it-works">كيف تعمل DAR؟</a><a href="@Url.Action("Search", "Properties")">دليل السكن الطلابي</a></div>
+      <div class="footer-links"><h3>نحن هنا لمساعدتك</h3><a href="#footer">مركز المساعدة</a><a href="#footer">تواصل معنا</a><span>الأحد - الخميس، ٩ ص - ٦ م</span></div>
+    </div>
+    <div class="container footer-bottom"><div><a href="#footer">سياسة الخصوصية</a><span>·</span><a href="#footer">الشروط والأحكام</a></div><span>جميع الحقوق محفوظة. DAR © ٢٠٢٦</span></div>
+  </footer>
+  <div class="toast" id="site-toast" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+@{
+    ViewData["Title"] = "تسجيل الدخول | DAR";
+    ViewData["BodyClass"] = "auth-page login-page";
+    ViewData["FooterClass"] = "auth-footer";
+}
+
+  <main class="auth-main container login-main">
+    <section class="auth-form-panel login-form-panel">
+      <a class="back-link" href="@Url.Action("Index", "Home")#listings"><span aria-hidden="true">→</span> العودة للبحث عن سكن</a>
+      <h1>أهلًا بعودتك إلى <span class="latin">دار</span></h1>
+      <p class="auth-subtitle">سجّل دخولك لتتابع بحثك، وتحفظ الأماكن التي قد تصبح دارك القادمة.</p>
+      <form class="auth-form login-form" id="login-form" novalidate>
+        <div class="form-field"><label for="login-email">البريد الإلكتروني</label><div class="input-wrap"><input id="login-email" name="email" type="email" placeholder="بريدك الجامعي أو الشخصي" autocomplete="email" required><span class="input-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span></div><small class="field-error"></small></div>
+        <div class="form-field"><label for="login-password">كلمة المرور</label><div class="input-wrap"><input id="login-password" name="password" type="password" placeholder="أدخل كلمة المرور" autocomplete="current-password" required><button class="input-icon password-toggle" type="button" aria-label="إظهار كلمة المرور" data-target="login-password"><svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button></div><small class="field-error"></small></div>
+        <div class="login-options"><label class="check-line"><input type="checkbox" id="remember-me"><span>تذكرني</span></label><a class="text-button" href="@Url.Action("ForgotPassword", "Account")">نسيت كلمة المرور؟</a></div>
+        <small class="form-general-error" id="login-general-error" aria-live="polite"></small>
+        <button class="btn btn-primary btn-block" type="submit">تسجيل الدخول</button>
+        <div class="or-divider"><span>أو</span></div>
+        <button class="btn btn-google btn-block" type="button" data-demo="google"><span class="google-symbol" aria-hidden="true">◎</span> المتابعة باستخدام جوجل</button>
+        <p class="auth-switch">ليس لديك حساب؟ <a href="@Url.Action("Register", "Account")">إنشاء حساب جديد</a></p>
+        <p class="privacy-note"><span aria-hidden="true">♙</span> بياناتك آمنة، ولا نشاركها دون موافقتك.</p>
+      </form>
+    </section>
+    <aside class="auth-promo-login"><img src="~/assets/auth-building-login.jpg" alt="مبنى سكني قريب من الجامعة وقت المساء"></aside>
+  </main>
+  

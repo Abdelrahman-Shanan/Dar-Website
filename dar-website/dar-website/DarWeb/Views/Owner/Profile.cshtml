@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "الملف الشخصي | DAR";
+    ViewData["UserName"] = "أحمد الخطيب";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" />
+}
+@section Scripts {
+    <script src="~/js/pages.js" defer></script>
+}
+
+  <main class="container page">
+    <ol class="crumbs" aria-label="مسار التنقل"><li><a href="@Url.Action("Index", "Home")">الرئيسية</a></li><li><a href="@Url.Action("MyListings", "Owner")">حساب المالك</a></li><li>الملف الشخصي</li></ol>
+    <div class="page-head"><div><h1>الملف الشخصي</h1><p class="sub">بياناتك وبيانات التواصل وتوثيق حسابك، ليثق بك الطلاب.</p></div><div class="head-side"><span class="role-tag">حساب المالك</span></div></div>
+    <div class="dash dash-3"><aside class="side" aria-label="قائمة الحساب"><div class="side-user"><span class="avatar"><svg class="ic ic-lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><strong>أحمد الخطيب</strong><span>حساب المالك · رقم هاتف موثّق</span></div><nav class="side-nav"><a href="@Url.Action("MyListings", "Owner")"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg><span>شققي</span><span class="count">٤</span></a><a href="@Url.Action("AddListing", "Owner")"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 8v8M8 12h8"/></svg><span>إضافة شقة</span></a><a href="@Url.Action("IncomingRequests", "Owner")"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 13h5l1 3h6l1-3h5"/><path d="M5 5h14l2 8v6H3v-6z"/></svg><span>الطلبات الواردة</span><span class="count">٢</span></a><a href="@Url.Action("Profile", "Owner")" class="active" aria-current="page"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>الملف الشخصي</span></a></nav><a class="side-logout" href="@Url.Action("Login", "Account")"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h4"/><path d="m16 8 4 4-4 4M20 12H9"/></svg><span>تسجيل الخروج</span></a><div class="side-help"><strong>تحتاج مساعدة؟</strong><p>فريق dar معك في كل خطوة.</p><a href="#footer">تواصل مع الدعم ←</a></div></aside>
+      <div class="dash-main">
+        <form class="panel" data-demo-form="تم التحقق من بياناتك. حفظها فعليًا يحتاج إلى Backend." novalidate><h2>المعلومات الشخصية</h2><p class="sub">تظهر لك هذه البيانات في إعلاناتك وطلبات الإيجار.</p>
+          <div class="fgrid">
+            <div class="f full"><label for="o-name">الاسم الكامل *</label><input id="o-name" name="name" value="أحمد الخطيب" required autocomplete="name"><span class="err">اكتب اسمك الكامل.</span></div>
+            <div class="f full"><label for="o-mail">البريد الإلكتروني *</label><input id="o-mail" name="email" type="email" value="ahmad.khatib@@email.com" class="ltr-input" required><span class="err">أدخل بريدًا إلكترونيًا.</span></div>
+            <div class="f"><label for="o-phone">رقم الهاتف *</label><input id="o-phone" name="phone" type="tel" value="٠٧٩ ١٢٣ ٤٥٦٧" class="ltr-input" required><span class="err">أدخل رقم هاتف.</span></div>
+            <div class="f"><label for="o-whatsapp">رقم واتساب *</label><input id="o-whatsapp" name="whatsapp" type="tel" value="٠٧٩ ١٢٣ ٤٥٦٧" class="ltr-input" required><span class="hint">يستخدمه الطلاب للتواصل معك عبر زر واتساب.</span><span class="err">أدخل رقم واتساب.</span></div>
+            <div class="f"><label for="o-city">المدينة</label><select id="o-city" name="city"><option value="عمّان" selected>عمّان</option><option value="إربد">إربد</option><option value="الزرقاء">الزرقاء</option></select></div>
+            <div class="f"><label for="o-gender">الجنس *</label><select id="o-gender" name="gender" required><option value="male" selected>ذكر</option><option value="female">أنثى</option></select></div>
+            <div class="f full"><label for="o-about">نبذة عنك</label><textarea id="o-about" name="about" maxlength="1000">مالك شقق طلابية قرب الجامعة الأردنية، أحرص على نظافة السكن والتعامل الواضح مع الطلاب.</textarea></div>
+          </div>
+          <div class="form-actions" style="border:0;padding-top:20px"><button class="btn btn-primary" type="submit">حفظ التغييرات <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></button><button class="btn btn-outline" type="reset">إلغاء التغييرات</button></div></form>
+        <form class="panel" data-demo-form="تم التحقق من الملفات. إرسال طلب التوثيق فعليًا يحتاج إلى Backend." novalidate><h2>توثيق الحساب</h2><p class="sub">ارفع إثبات الهوية وإثبات الملكية لتحصل على شارة «مالك موثّق». تراجعها إدارة dar.</p>
+          <div style="margin-bottom:16px"><span class="badge b-ok">حسابك موثّق</span></div>
+          <div class="fgrid">
+            <div class="f"><label for="id_document">إثبات الهوية *</label><input id="id_document" name="id_document" type="file" accept="image/jpeg,image/png,application/pdf" required><span class="err">أرفق إثبات الهوية.</span></div>
+            <div class="f"><label for="ownership_document">إثبات الملكية *</label><input id="ownership_document" name="ownership_document" type="file" accept="image/jpeg,image/png,application/pdf" required><span class="err">أرفق إثبات الملكية.</span></div>
+          </div>
+          <div class="form-actions" style="border:0;padding-top:20px"><button class="btn btn-outline" type="submit"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg> إرسال طلب التوثيق</button></div></form>
+        <form class="panel" id="password-form" novalidate><h2>الأمان وكلمة المرور</h2><p class="sub">اختر كلمة مرور قوية لم تستخدمها في حساب آخر.</p>
+          <div class="fgrid">
+            <div class="f full"><label for="pw-current">كلمة المرور الحالية</label><input id="pw-current" type="password" placeholder="أدخل كلمة المرور الحالية" autocomplete="current-password"><span class="err"></span></div>
+            <div class="f"><label for="pw-new">كلمة المرور الجديدة</label><input id="pw-new" type="password" placeholder="٨ أحرف على الأقل" autocomplete="new-password"><span class="err"></span></div>
+            <div class="f"><label for="pw-confirm">تأكيد كلمة المرور</label><input id="pw-confirm" type="password" placeholder="أعد كتابة كلمة المرور" autocomplete="new-password"><span class="err"></span></div>
+          </div>
+          <div class="form-actions" style="border:0;padding-top:20px"><button class="btn btn-outline" type="submit"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> تحديث كلمة المرور</button></div></form>
+      </div>
+      <aside class="dash-main"><div class="panel profile-account"><h2 style="font-size:20px">حسابك في dar</h2>
+          <div class="center"><span class="avatar avatar-lg" style="margin:14px auto 12px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><button class="btn btn-outline btn-sm" type="button" data-toast="رفع الصورة الشخصية يحتاج إلى Backend.">تغيير الصورة <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg></button>
+          <strong>أحمد الخطيب</strong><span class="muted">حساب مالك</span><span class="badge b-ok">مالك موثّق</span></div>
+          <div class="profile-stats"><div><span>عضو منذ</span><b>أيلول ٢٠٢٦</b></div><div><span>الشقق</span><b>٤ شقق</b></div><div><span>الطلبات الواردة</span><b>٤ طلبات</b></div></div></div>
+        <div class="notice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span>رقم واتساب يظهر للطلاب في صفحة الإعلان فقط، ولا تُعرض بياناتك الشخصية الأخرى للعامة.</span></div></aside>
+    </div></main>
+  

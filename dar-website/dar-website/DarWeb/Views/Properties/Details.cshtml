@@ -1,0 +1,71 @@
+@{
+    ViewData["Title"] = "تفاصيل السكن | DAR";
+    ViewData["Description"] = "تفاصيل شقة مفروشة بالقرب من الجامعة الأردنية.";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" />
+}
+@section Scripts {
+    <script src="~/js/pages.js" defer></script>
+}
+
+  <main class="container page">
+    <ol class="crumbs" aria-label="مسار التنقل"><li><a href="@Url.Action("Index", "Home")">الرئيسية</a></li><li><a href="@Url.Action("Search", "Properties")">ابحث عن سكن</a></li><li><a href="@Url.Action("Search", "Properties")">عمّان، الجبيهة</a></li><li>تفاصيل السكن</li></ol>
+    <div class="detail-title"><div><h1>شقة مفروشة بالقرب من الجامعة الأردنية</h1><p class="detail-loc"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>عمّان، الجبيهة · شارع الجامعة · ٨ دقائق مشيًا إلى الجامعة</p></div>
+      <div class="head-side" style="padding-top:6px"><button class="btn btn-outline" type="button" data-fav-btn data-toast="تمت إضافة السكن إلى المفضلة (يتطلب تسجيل الدخول للحفظ الدائم)."><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/></svg> حفظ</button><button class="btn btn-outline" type="button" data-toast="تم نسخ رابط السكن (تجريبيًا)."><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="m8.2 10.8 7.6-3.6M8.2 13.2l7.6 3.6"/></svg> مشاركة</button></div></div>
+    <div class="detail">
+      <div class="detail-main">
+        <div class="gallery">
+          <div class="g-main"><img id="gallery-main" src="~/assets/p-apartment.jpg" alt="واجهة المبنى مساءً"><button class="g-count" type="button" data-toast="معرض الصور الكامل يحتاج إلى ربط الصور من Backend."><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg> عرض ٨ صور</button></div>
+          <div class="g-thumbs">
+            <button type="button" class="active" data-src="~/assets/p-apartment.jpg" data-alt="واجهة المبنى مساءً" aria-label="عرض واجهة المبنى"><img src="~/assets/p-apartment.jpg" alt=""></button>
+            <button type="button" data-src="~/assets/g-living.jpg" data-alt="غرفة الجلوس" aria-label="عرض غرفة الجلوس"><img src="~/assets/g-living.jpg" alt=""></button>
+            <button type="button" data-src="~/assets/g-bedroom.jpg" data-alt="غرفة النوم" aria-label="عرض غرفة النوم"><img src="~/assets/g-bedroom.jpg" alt=""></button>
+          </div>
+        </div>
+        <div class="facts"><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18V7M3 14h18v4M21 14v-2a3 3 0 0 0-3-3h-7v5"/></svg>غرفتان</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4zM6 12V6a2 2 0 0 1 4 0"/></svg>حمّام واحد</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg>٨٥ م²</div><div><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11V8a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3M3 13a2 2 0 0 1 4 0v2h10v-2a2 2 0 0 1 4 0v5H3z"/></svg>مفروشة</div></div>
+        <section class="d-sec"><h2>عن هذا السكن</h2><p>شقة مريحة ومفروشة بالكامل في الجبيهة، على بُعد ٨ دقائق مشيًا من البوابة الشمالية للجامعة الأردنية. تضم غرفتي نوم وصالة جلوس ومطبخًا مجهزًا، مع إضاءة طبيعية ومساحة مناسبة للدراسة. مناسبة لطالبين يبحثان عن سكن هادئ وقريب من المحاضرات والخدمات. تقع في الطابق الثاني، بالقرب من محلات البقالة والمواصلات.</p></section>
+        <section class="d-sec"><h2>كل ما تحتاجه لحياتك الجامعية</h2><ul class="amen"><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r=".6"/></svg>إنترنت متوفر</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 7h1"/></svg>غسالة ملابس</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5h7a2 2 0 0 1 2 2v13a2 2 0 0 0-2-2H3zM21 5h-7a2 2 0 0 0-2 2v13a2 2 0 0 1 2-2h7z"/></svg>مكاتب للدراسة</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="15" rx="3"/><path d="M4 11h16M8 21v-3M16 21v-3"/></svg>قريبة من المواصلات</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11h16v2a6 6 0 0 1-6 6h-4a6 6 0 0 1-6-6zM9 7c0-1.5 1-1.5 1-3M14 7c0-1.5 1-1.5 1-3"/></svg>مطبخ مجهّز</li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M5 19l1.5-1.5M17.5 6.5 19 5"/></svg>شرفة وإضاءة طبيعية</li></ul></section>
+        <section class="d-sec"><h2>شروط الإقامة</h2><ul class="terms"><li>مخصصة للطلاب الجامعيين، بحد أقصى شخصين.</li><li>مدة العقد فصل دراسي على الأقل، والتأمين مسترد حسب حالة الشقة.</li><li>يُرجى الالتزام بالهدوء والمحافظة على المرافق المشتركة.</li></ul></section>
+        <section class="d-sec"><h2>قريب من جامعتك</h2>
+          <div class="map" role="img" aria-label="خريطة تقريبية لموقع السكن">
+            <span class="blk" style="top:18px;right:42%;width:190px;height:70px"></span><span class="blk" style="top:12px;left:6%;width:240px;height:76px"></span><span class="blk" style="bottom:20px;right:3%;width:210px;height:70px"></span><span class="blk" style="bottom:20px;left:8%;width:240px;height:100px"></span>
+            <span class="rd" style="top:0;bottom:0;right:30%;width:7px;transform:skewX(-6deg)"></span><span class="rd" style="top:0;bottom:0;left:30%;width:7px;transform:skewX(4deg)"></span><span class="rd" style="top:49%;left:0;right:0;height:11px"></span>
+            <span class="lbl" style="top:42px;right:30px"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg> الجبيهة · شارع الجامعة</span><span class="lbl" style="top:36px;left:12%"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg> الجامعة الأردنية</span>
+            <span class="pin"><i><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-6v-7h-4v7H4a1 1 0 0 1-1-1z"/></svg></i></span><span class="lbl" style="bottom:12px;right:14px;color:#9bacc5">موقع تقريبي لحماية خصوصية الساكنين</span>
+          </div>
+          <div class="dist-row"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>الجامعة الأردنية · ٨ دقائق</span></div></section>
+      </div>
+      <aside>
+        <div class="price-card"><div class="price-top"><span>شقة كاملة</span><span class="avail">متاح للإيجار الآن</span></div>
+          <div class="price-big">٢٨٠ <small>د.أ / شهر</small></div>
+          <p>الإيجار للشقة كاملة، مناسب لطالبين. الماء والكهرباء حسب الاستهلاك.</p>
+          <div class="kv"><span>التأمين المسترد</span><b>٢٨٠ د.أ</b></div><div class="kv"><span>الحد الأدنى للإيجار</span><b>فصل دراسي</b></div><div class="kv"><span>الإنترنت</span><b>متوفر · غير مشمول</b></div>
+          <a class="btn btn-primary" href="https://wa.me/962791234567" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 0 1-11.5 7.2L4 20l1-4A8 8 0 1 1 20 12z"/></svg> تواصل مع المالك عبر واتساب</a><a class="btn btn-outline" href="#request-form"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></svg> إرسال طلب إيجار</a></div>
+        <form class="price-card owner-card" id="request-form" data-demo-form="تم التحقق من طلب الإيجار. إرساله فعليًا يحتاج إلى Backend وتسجيل الدخول بحساب مستأجر." novalidate>
+          <div class="owner-head"><span class="avatar"><svg class="ic ic-lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><div><strong>أحمد الخطيب</strong><span>مالك السكن · رقم هاتف موثّق</span></div></div>
+          <p class="lead">مهتم بالسكن؟ أرسل طلب إيجار وسيصلك رد المالك عبر حسابك.</p>
+          <div class="f"><label for="start_date">موعد الانتقال المتوقع</label><div class="with-icon"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="16" rx="2"/><path d="M4 10h16M8 3v4M16 3v4"/></svg><input id="start_date" name="start_date" type="date" required></div><span class="err">اختر موعد الانتقال.</span></div>
+          <div class="f"><label for="duration_months">مدة الإقامة</label><select id="duration_months" name="duration_months" required><option value="4">فصل دراسي</option><option value="9">سنة دراسية</option><option value="3">٣ أشهر</option></select></div>
+          <div class="f"><label for="occupants_count">عدد الساكنين</label><select id="occupants_count" name="occupants_count" required><option value="1">شخص واحد</option><option value="2">شخصان</option></select></div>
+          <div class="f"><label for="message">رسالة للمالك (اختياري)</label><textarea id="message" name="message" maxlength="1000" style="min-height:80px" placeholder="عرّف بنفسك واذكر أي استفسار..."></textarea></div>
+          <button class="btn btn-primary btn-block" type="submit">إرسال طلب الإيجار</button><p class="small">يتطلب تسجيل الدخول بحساب مستأجر. لن تُشارك بياناتك إلا مع مالك هذا الإعلان.</p></form>
+        <div class="notice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span>أمانك، عاين السكن وتأكد من تفاصيل العقد قبل دفع أي مبلغ.</span></div>
+      </aside>
+    </div>
+    <h2 class="more-title">خيارات أخرى قد تناسبك</h2>
+    <div class="property-grid"><article class="property-card" data-type="private" data-price="140" >
+  <div class="property-image-wrap"><img src="~/assets/p-private.jpg" alt="غرفة خاصة في شقة طلابية" loading="lazy"><span class="property-tag">غرفة خاصة</span><button class="favorite-btn" aria-label="إضافة إلى المفضلة" aria-pressed="false" type="button">♡</button></div>
+  <div class="property-content"><h3>غرفة خاصة في شقة طلابية</h3><p class="property-location">عمّان، تلاع العلي</p><p class="property-meta">غرفة · ٢٠ م² · حمّام مشترك</p>
+  <p class="property-distance"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>١٠ دقائق بالحافلة إلى الجامعة</p>
+  <div class="property-bottom"><span class="property-price">١٤٠ <small>د.أ / شهر</small></span><a class="round-arrow" href="@Url.Action("Details", "Properties")" aria-label="عرض تفاصيل: غرفة خاصة في شقة طلابية"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 17 7 7M7 15V7h8"/></svg></a></div></div></article><article class="property-card" data-type="studio" data-price="220" >
+  <div class="property-image-wrap"><img src="~/assets/p-studio.jpg" alt="استوديو هادئ وجاهز للسكن" loading="lazy"><span class="property-tag">استوديو</span><button class="favorite-btn" aria-label="إضافة إلى المفضلة" aria-pressed="false" type="button">♡</button></div>
+  <div class="property-content"><h3>استوديو هادئ وجاهز للسكن</h3><p class="property-location">عمّان، ضاحية الرشيد</p><p class="property-meta">غرفة · ٤٠ م² · حمّام</p>
+  <p class="property-distance"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>١٢ دقيقة مشيًا إلى الجامعة</p>
+  <div class="property-bottom"><span class="property-price">٢٢٠ <small>د.أ / شهر</small></span><a class="round-arrow" href="@Url.Action("Details", "Properties")" aria-label="عرض تفاصيل: استوديو هادئ وجاهز للسكن"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 17 7 7M7 15V7h8"/></svg></a></div></div></article><article class="property-card" data-type="shared" data-price="90" >
+  <div class="property-image-wrap"><img src="~/assets/p-shared.jpg" alt="غرفة مشتركة قريبة من كل شيء" loading="lazy"><span class="property-tag">غرفة مشتركة</span><button class="favorite-btn" aria-label="إضافة إلى المفضلة" aria-pressed="false" type="button">♡</button></div>
+  <div class="property-content"><h3>غرفة مشتركة قريبة من كل شيء</h3><p class="property-location">عمّان، الجبيهة · حي الرشيد</p><p class="property-meta">سريران · ٢٤ م² · حمّام مشترك</p>
+  <p class="property-distance"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>٥ دقائق مشيًا إلى الجامعة</p>
+  <div class="property-bottom"><span class="property-price">٩٠ <small>د.أ / شهر</small></span><a class="round-arrow" href="@Url.Action("Details", "Properties")" aria-label="عرض تفاصيل: غرفة مشتركة قريبة من كل شيء"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 17 7 7M7 15V7h8"/></svg></a></div></div></article></div>
+  </main>
+  

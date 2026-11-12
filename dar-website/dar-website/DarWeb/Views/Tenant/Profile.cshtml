@@ -1,0 +1,49 @@
+@{
+    ViewData["Title"] = "الملف الشخصي | DAR";
+    ViewData["UserName"] = "سامر العبدالله";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" />
+}
+@section Scripts {
+    <script src="~/js/pages.js" defer></script>
+}
+
+  <main class="container page">
+    <ol class="crumbs" aria-label="مسار التنقل"><li><a href="@Url.Action("Index", "Home")">الرئيسية</a></li><li><a href="@Url.Action("Profile", "Tenant")">حساب المستأجر</a></li><li>الملف الشخصي</li></ol>
+    <div class="page-head"><div><h1>الملف الشخصي</h1><p class="sub">بياناتك وتفضيلاتك في مكان واحد، لتكون رحلتك إلى سكنك القادم أسهل.</p></div><div class="head-side"><span class="role-tag">حساب المستأجر</span></div></div>
+    <div class="dash dash-3"><aside class="side" aria-label="قائمة الحساب"><div class="side-user"><span class="avatar"><svg class="ic ic-lg" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><strong>سامر العبدالله</strong><span>حساب المستأجر</span></div><nav class="side-nav"><a href="@Url.Action("Profile", "Tenant")" class="active" aria-current="page"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg><span>الملف الشخصي</span></a><a href="@Url.Action("MyRequests", "Tenant")"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h4"/></svg><span>طلباتي</span><span class="count">٣</span></a><a href="@Url.Action("Search", "Properties")"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20s-8-5-8-11a4.5 4.5 0 0 1 8-2.5A4.5 4.5 0 0 1 20 9c0 6-8 11-8 11z"/></svg><span>المفضلة</span></a></nav><a class="side-logout" href="@Url.Action("Login", "Account")"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4H5a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h4"/><path d="m16 8 4 4-4 4M20 12H9"/></svg><span>تسجيل الخروج</span></a><div class="side-help"><strong>تحتاج مساعدة؟</strong><p>فريق dar معك في كل خطوة.</p><a href="#footer">تواصل مع الدعم ←</a></div></aside>
+      <div class="dash-main">
+        <form class="panel" data-demo-form="تم التحقق من بياناتك. حفظها فعليًا يحتاج إلى Backend." novalidate><h2>المعلومات الشخصية</h2><p class="sub">حدّث بياناتك ليتمكن أصحاب السكن من التواصل معك.</p>
+          <div class="fgrid">
+            <div class="f full"><label for="p-name">الاسم الكامل *</label><input id="p-name" name="name" value="سامر العبدالله" required autocomplete="name"><span class="err">اكتب اسمك الكامل.</span></div>
+            <div class="f full"><label for="p-mail">البريد الإلكتروني *</label><input id="p-mail" name="email" type="email" value="samer.abdallah@@ju.edu.jo" class="ltr-input" required autocomplete="email"><span class="err">أدخل بريدًا إلكترونيًا.</span></div>
+            <div class="f full"><span class="badge b-ok verified">البريد الإلكتروني موثّق</span></div>
+            <div class="f"><label for="p-phone">رقم الهاتف *</label><input id="p-phone" name="phone" type="tel" value="٠٧٩ ٥٤٣ ٢١٠٨" class="ltr-input" required autocomplete="tel"><span class="err">أدخل رقم هاتف.</span></div>
+            <div class="f"><label for="p-city">المدينة</label><select id="p-city" name="city"><option value="عمّان" selected>عمّان</option><option value="إربد">إربد</option><option value="الزرقاء">الزرقاء</option></select></div>
+            <div class="f"><label for="p-uni">الجامعة *</label><select id="p-uni" name="university_id" required><option value="1" selected>الجامعة الأردنية</option><option value="2">جامعة العلوم التطبيقية</option><option value="3">جامعة الأميرة سمية</option></select></div>
+            <div class="f"><label for="p-major">التخصص</label><input id="p-major" name="faculty" value="الهندسة المدنية"></div>
+            <div class="f"><label for="p-gender">الجنس *</label><select id="p-gender" name="gender" required><option value="male" selected>ذكر</option><option value="female">أنثى</option></select></div>
+            <div class="f"><label for="p-nat">الجنسية</label><input id="p-nat" name="nationality" value="أردني"></div>
+            <div class="f"><label for="p-dob">تاريخ الميلاد</label><input id="p-dob" name="date_of_birth" type="date" value="2004-03-15"></div>
+            <div class="f full"><label for="p-bio">نبذة عنك</label><textarea id="p-bio" name="bio" maxlength="500">طالب في السنة الثالثة، أبحث عن سكن هادئ بالقرب من الجامعة وأهتم بالمحافظة على المكان.</textarea></div>
+          </div>
+          <div class="form-actions" style="border:0;padding-top:20px"><button class="btn btn-primary" type="submit">حفظ التغييرات <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg></button><button class="btn btn-outline" type="reset">إلغاء التغييرات</button></div></form>
+        <form class="panel" id="password-form" novalidate><h2>الأمان وكلمة المرور</h2><p class="sub">اختر كلمة مرور قوية لم تستخدمها في حساب آخر.</p>
+          <div class="fgrid">
+            <div class="f full"><label for="pw-current">كلمة المرور الحالية</label><input id="pw-current" type="password" placeholder="أدخل كلمة المرور الحالية" autocomplete="current-password"><span class="err"></span></div>
+            <div class="f"><label for="pw-new">كلمة المرور الجديدة</label><input id="pw-new" type="password" placeholder="٨ أحرف على الأقل" autocomplete="new-password"><span class="err"></span></div>
+            <div class="f"><label for="pw-confirm">تأكيد كلمة المرور</label><input id="pw-confirm" type="password" placeholder="أعد كتابة كلمة المرور" autocomplete="new-password"><span class="err"></span></div>
+          </div>
+          <div class="form-actions" style="border:0;padding-top:20px"><button class="btn btn-outline" type="submit"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg> تحديث كلمة المرور</button></div></form>
+        <form class="panel" data-demo-form="تم حفظ التفضيلات (تجريبيًا). الحفظ الدائم يحتاج إلى Backend." novalidate><h2>تفضيلات الإشعارات</h2>
+          <div class="check-list" style="margin:18px 0"><label class="chk"><input type="checkbox" name="notify_status" checked><span>إشعاري عند تحديث حالة طلبات السكن</span></label><label class="chk"><input type="checkbox" name="notify_email" checked><span>إرسال تنبيهات الطلبات إلى البريد الإلكتروني</span></label><label class="chk dim"><input type="checkbox" name="notify_suggestions"><span>إرسال اقتراحات لسكن قريب من جامعتي</span></label></div>
+          <button class="btn btn-outline" type="submit">حفظ التفضيلات</button></form>
+      </div>
+      <aside class="dash-main"><div class="panel profile-account"><h2 style="font-size:20px">حسابك في dar</h2>
+          <div class="center"><span class="avatar avatar-lg" style="margin:14px auto 12px"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></span><button class="btn btn-outline btn-sm" type="button" data-toast="رفع الصورة الشخصية يحتاج إلى Backend.">تغيير الصورة <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v12H4z"/><circle cx="12" cy="13" r="3.5"/></svg></button>
+          <strong>سامر العبدالله</strong><span class="muted">طالب · الجامعة الأردنية</span><span class="badge b-ok">حساب نشط</span></div>
+          <div class="profile-stats"><div><span>عضو منذ</span><b>أيلول ٢٠٢٦</b></div><div><span>طلبات السكن</span><b>٣ طلبات</b></div><div><span>الإعلانات المحفوظة</span><b>٦ إعلانات</b></div></div></div>
+        <div class="notice"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 5 6v6c0 4.5 3 7.5 7 9 4-1.5 7-4.5 7-9V6z"/><path d="m9 12 2 2 4-4"/></svg><span>بيانات التواصل لا تظهر للعامة؛ نشاركها فقط مع مالك السكن عند إرسال طلبك.</span></div></aside>
+    </div></main>
+  

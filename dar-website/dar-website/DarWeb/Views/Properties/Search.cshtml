@@ -1,0 +1,69 @@
+@{
+    ViewData["Title"] = "البحث عن سكن | DAR";
+    ViewData["Nav"] = "search";
+    ViewData["Description"] = "ابحث عن سكن طلابي بالقرب من جامعتك.";
+}
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages.css" />
+}
+@section Scripts {
+    <script src="~/js/pages.js" defer></script>
+}
+
+  <main>
+    <section class="search-hero"><div class="container">
+      <ol class="crumbs" aria-label="مسار التنقل"><li><a href="@Url.Action("Index", "Home")">الرئيسية</a></li><li><a href="@Url.Action("Search", "Properties")">ابحث عن سكن</a></li><li>عمّان</li></ol>
+      <form class="big-search" id="hero-search" role="search">
+        <div class="grow"><span class="pin"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6 7-12a7 7 0 0 0-14 0c0 6 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></span><input id="hero-q" type="text" value="عمّان، بالقرب من الجامعة الأردنية" aria-label="ابحث عن موقع أو جامعة"><button class="clear" type="button" aria-label="مسح البحث"><svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button></div>
+        <button class="btn btn-primary" type="submit"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg> بحث</button>
+      </form></div></section>
+    <div class="container search-layout">
+      <aside><form class="filters" id="filters" aria-label="تصفية النتائج">
+        <h2><span>حدّد سكنك</span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></h2>
+        <div class="fgroup"><h3>الموقع والجامعة</h3>
+          <div class="f"><label for="city">المدينة</label><select id="city"><option>عمّان</option><option>إربد</option><option>الزرقاء</option></select></div>
+          <div class="f"><label for="uni">بالقرب من</label><select id="uni"><option value="ju">الجامعة الأردنية</option><option value="all">كل الجامعات</option><option value="htu">جامعة العلوم التطبيقية</option></select></div>
+          <div class="f"><label for="dist">المسافة من الجامعة</label><select id="dist"><option value="0">أي مسافة</option><option value="10">حتى ١٠ دقائق</option><option value="20">حتى ٢٠ دقيقة</option><option value="30" selected>حتى ٣٠ دقيقة</option></select></div></div>
+        <div class="fgroup"><h3>نوع السكن</h3><label class="chk"><input type="checkbox" name="type" value="apartment" checked><span>شقة كاملة</span></label><label class="chk"><input type="checkbox" name="type" value="studio" checked><span>استوديو</span></label><label class="chk"><input type="checkbox" name="type" value="private" checked><span>غرفة خاصة</span></label><label class="chk"><input type="checkbox" name="type" value="shared" checked><span>غرفة مشتركة</span></label></div>
+        <div class="fgroup"><h3>الإيجار الشهري (د.أ)</h3>
+          <div class="price-inputs"><div><label for="price-min">من</label><input id="price-min" type="number" value="80" min="50" max="350" inputmode="numeric"></div><div><label for="price-max">إلى</label><input id="price-max" type="number" value="300" min="50" max="350" inputmode="numeric"></div></div>
+          <div class="range" dir="ltr"><span class="track-bg"></span><span class="fill"></span><input id="price-min-range" type="range" min="50" max="350" step="5" value="80" aria-label="الحد الأدنى للإيجار"><input id="price-max-range" type="range" min="50" max="350" step="5" value="300" aria-label="الحد الأعلى للإيجار"></div></div>
+        <div class="fgroup"><h3>تفاصيل تهمّك</h3><label class="chk"><input type="checkbox" name="flag" value="furnished" checked><span>مفروش بالكامل</span></label><label class="chk"><input type="checkbox" name="flag" value="internet"><span>إنترنت متوفر</span></label><label class="chk"><input type="checkbox" name="flag" value="bills"><span>الفواتير مشمولة</span></label><label class="chk"><input type="checkbox" name="flag" value="female"><span>مناسب للطالبات</span></label><label class="chk"><input type="checkbox" name="flag" value="male"><span>مناسب للطلاب</span></label></div>
+        <button class="btn btn-primary btn-block" type="button" id="show-results">عرض <span data-result-count>٦</span> نتيجة</button>
+        <button class="reset-link" type="button" id="reset-filters">إعادة ضبط الفلاتر</button>
+      </form></aside>
+      <section aria-live="polite">
+        <div class="results-head"><div><h1>سكن بالقرب من جامعتك</h1><p id="results-sub">٦ خيارات مناسبة بالقرب من الجامعة الأردنية</p></div>
+          <label class="sort"><span>الترتيب:</span><select id="sort"><option value="dist">الأقرب للجامعة</option><option value="price">الأقل سعرًا</option><option value="price-desc">الأعلى سعرًا</option></select></label></div>
+        <div class="chips"><button class="chip" data-reset="university" type="button">الجامعة الأردنية <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><button class="chip" data-reset="price" type="button">حتى ٣٠٠ د.أ <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><button class="chip" data-reset="furnished" type="button">مفروش <svg class="ic ic-sm" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"/></svg></button><button class="chip-clear" type="button">مسح الكل</button></div>
+        <div class="property-grid results-grid" id="results-grid"><article class="property-card" data-type="studio" data-price="220" data-dist="12" data-furnished="1" data-internet="1" data-bills="0" data-female="1" data-male="1">
+  <div class="property-image-wrap"><img src="~/assets/p-studio.jpg" alt="استوديو هادئ وجاهز للسكن" loading="lazy"><span class="property-tag">استوديو</span><button class="favorite-btn" aria-label="إضافة إلى المفضلة" aria-pressed="false" type="button">♡</button></div>
+  <div class="property-content"><h3>استوديو هادئ وجاهز للسكن</h3><p class="property-location">عمّان، ضاحية الرشيد</p><p class="property-meta">غرفة · حمّام · ٤٠ م²</p>
+  <p class="property-distance"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>١٢ دقيقة مشيًا إلى الجامعة</p>
+  <div class="property-bottom"><span class="property-price">٢٢٠ <small>د.أ / شهر</small></span><a class="round-arrow" href="@Url.Action("Details", "Properties")" aria-label="عرض تفاصيل: استوديو هادئ وجاهز للسكن"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 17 7 7M7 15V7h8"/></svg></a></div></div></article><article class="property-card" data-type="private" data-price="140" data-dist="20" data-furnished="1" data-internet="1" data-bills="1" data-female="1" data-male="0">
+  <div class="property-image-wrap"><img src="~/assets/p-private.jpg" alt="غرفة خاصة في شقة طلابية" loading="lazy"><span class="property-tag">غرفة خاصة</span><button class="favorite-btn" aria-label="إضافة إلى المفضلة" aria-pressed="false" type="button">♡</button></div>
+  <div class="property-content"><h3>غرفة خاصة في شقة طلابية</h3><p class="property-location">عمّان، تلاع العلي</p><p class="property-meta">غرفة · حمّام مشترك · ٢٠ م²</p>
+  <p class="property-distance"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>١٠ دقائق بالحافلة إلى الجامعة</p>
+  <div class="property-bottom"><span class="property-price">١٤٠ <small>د.أ / شهر</small></span><a class="round-arrow" href="@Url.Action("Details", "Properties")" aria-label="عرض تفاصيل: غرفة خاصة في شقة طلابية"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 17 7 7M7 15V7h8"/></svg></a></div></div></article><article class="property-card" data-type="apartment" data-price="280" data-dist="8" data-furnished="1" data-internet="1" data-bills="0" data-female="1" data-male="1">
+  <div class="property-image-wrap"><img src="~/assets/p-apartment.jpg" alt="شقة مفروشة بالقرب من الجامعة الأردنية" loading="lazy"><span class="property-tag">شقة كاملة</span><button class="favorite-btn" aria-label="إضافة إلى المفضلة" aria-pressed="false" type="button">♡</button></div>
+  <div class="property-content"><h3>شقة مفروشة بالقرب من الجامعة الأردنية</h3><p class="property-location">عمّان، الجبيهة · شارع الجامعة</p><p class="property-meta">غرفتان · حمّام · ٨٥ م²</p>
+  <p class="property-distance"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>٨ دقائق مشيًا إلى الجامعة</p>
+  <div class="property-bottom"><span class="property-price">٢٨٠ <small>د.أ / شهر</small></span><a class="round-arrow" href="@Url.Action("Details", "Properties")" aria-label="عرض تفاصيل: شقة مفروشة بالقرب من الجامعة الأردنية"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 17 7 7M7 15V7h8"/></svg></a></div></div></article><article class="property-card" data-type="apartment" data-price="290" data-dist="25" data-furnished="1" data-internet="1" data-bills="0" data-female="0" data-male="1">
+  <div class="property-image-wrap"><img src="~/assets/p-balcony.jpg" alt="شقة مفروشة مع شرفة" loading="lazy"><span class="property-tag">شقة كاملة</span><button class="favorite-btn" aria-label="إضافة إلى المفضلة" aria-pressed="false" type="button">♡</button></div>
+  <div class="property-content"><h3>شقة مفروشة مع شرفة</h3><p class="property-location">عمّان، شارع ياجوز</p><p class="property-meta">٣ غرف · حمّامان · ١١٠ م²</p>
+  <p class="property-distance"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>١٠ دقائق بالحافلة إلى الجامعة</p>
+  <div class="property-bottom"><span class="property-price">٢٩٠ <small>د.أ / شهر</small></span><a class="round-arrow" href="@Url.Action("Details", "Properties")" aria-label="عرض تفاصيل: شقة مفروشة مع شرفة"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 17 7 7M7 15V7h8"/></svg></a></div></div></article><article class="property-card" data-type="apartment" data-price="250" data-dist="30" data-furnished="1" data-internet="1" data-bills="1" data-female="1" data-male="1">
+  <div class="property-image-wrap"><img src="~/assets/p-natural.jpg" alt="شقة طلابية بإضاءة طبيعية" loading="lazy"><span class="property-tag">شقة كاملة</span><button class="favorite-btn" aria-label="إضافة إلى المفضلة" aria-pressed="false" type="button">♡</button></div>
+  <div class="property-content"><h3>شقة طلابية بإضاءة طبيعية</h3><p class="property-location">عمّان، أبو نصير</p><p class="property-meta">غرفتان · حمّام · ٩٠ م²</p>
+  <p class="property-distance"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>١٥ دقيقة بالحافلة إلى الجامعة</p>
+  <div class="property-bottom"><span class="property-price">٢٥٠ <small>د.أ / شهر</small></span><a class="round-arrow" href="@Url.Action("Details", "Properties")" aria-label="عرض تفاصيل: شقة طلابية بإضاءة طبيعية"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 17 7 7M7 15V7h8"/></svg></a></div></div></article><article class="property-card" data-type="shared" data-price="90" data-dist="5" data-furnished="1" data-internet="1" data-bills="1" data-female="0" data-male="1">
+  <div class="property-image-wrap"><img src="~/assets/p-shared.jpg" alt="غرفة مشتركة قريبة من كل شيء" loading="lazy"><span class="property-tag">غرفة مشتركة</span><button class="favorite-btn" aria-label="إضافة إلى المفضلة" aria-pressed="false" type="button">♡</button></div>
+  <div class="property-content"><h3>غرفة مشتركة قريبة من كل شيء</h3><p class="property-location">عمّان، الجبيهة · حي الرشيد</p><p class="property-meta">سريران · حمّام مشترك · ٢٤ م²</p>
+  <p class="property-distance"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="m2 9 10-5 10 5-10 5z"/><path d="M6 11v5c0 1.5 3 3 6 3s6-1.5 6-3v-5"/></svg>٥ دقائق مشيًا إلى الجامعة</p>
+  <div class="property-bottom"><span class="property-price">٩٠ <small>د.أ / شهر</small></span><a class="round-arrow" href="@Url.Action("Details", "Properties")" aria-label="عرض تفاصيل: غرفة مشتركة قريبة من كل شيء"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M17 17 7 7M7 15V7h8"/></svg></a></div></div></article></div>
+        <div class="empty-results" id="empty-results" hidden>لا توجد خيارات تطابق الفلاتر الحالية. جرّب توسيع نطاق السعر أو المسافة.</div>
+        <div class="pager-row" style="justify-content:center;margin-top:30px"><div class="pager"><a href="#">السابق</a><span class="cur">١</span><a href="#">٢</a><a href="#">٣</a><a href="#">التالي</a></div></div>
+      </section>
+    </div>
+  </main>
+  
